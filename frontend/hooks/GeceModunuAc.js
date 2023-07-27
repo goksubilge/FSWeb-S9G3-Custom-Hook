@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import LocalStorageKullan from "./localStorageKullan";
 
 function GeceModunuAc(initialMode = false) {
-  const [geceModu, setGeceModu] = useState(initialMode);
+  const [geceModu, setGeceModu] = LocalStorageKullan("geceModu", initialMode);
 
   const toggleMode = () => {
     // console.log ("geceModunuAc.js: toggleMode() çalıştı");
@@ -10,3 +10,5 @@ function GeceModunuAc(initialMode = false) {
   return [geceModu, toggleMode];
 }
 export default GeceModunuAc;
+
+// LocalStorageKullan = useLocalStorage aslında

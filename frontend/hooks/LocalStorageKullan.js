@@ -5,10 +5,10 @@ function LocalStorageKullan(key, initialData) {
   const [data, setData] = useState(initialData);
   useEffect(() => {
     if (localStorage.getItem(key) === null) {
-      localStorage.setItem(key, data);
+      localStorage.setItem(key, JSON.stringify(data));
     } else {
       //  hem local storage a yazıyor
-      const IsData = localStorage.getItem(key);
+      const IsData = JSON.parse(localStorage.getItem(key));
       setData(IsData);
     }
   }, [data]);
