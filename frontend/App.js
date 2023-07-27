@@ -3,10 +3,11 @@ import axios from "axios";
 import Charts from "./components/Charts";
 import Navbar from "./components/Navbar";
 import LocalStorageKullan from "./hooks/localStorageKullan";
+import GeceModunuAc from "./hooks/GeceModunuAc";
 
 const App = () => {
   const [coinData, setCoinData] = useState([]);
-  const [geceModu, setGeceModu] = useState(false);
+  const [geceModu, setGeceModu] = GeceModunuAc(false);
   const [data2, setData2] = LocalStorageKullan("geceModu", "karanlık");
   const [login, setLoginInfo] = LocalStorageKullan("login", false);
 
@@ -22,15 +23,13 @@ const App = () => {
     <div className={geceModu ? "dark-mode App" : "App"}>
       {data2}
       <button type="button" onClick={() => setData2("set meee")}>
-        {" "}
-        BUTTON{" "}
+        BUTTON
       </button>
       <button type="button" onClick={() => setLoginInfo(!login)}>
-        {" "}
         ıs Logged in: {login.toString()}
       </button>
       <Navbar geceModu={geceModu} setGeceModu={setGeceModu} />
-      <Charts coinData={coinData} />
+      {/*<Charts coinData={coinData} />*/}
     </div>
   );
 };
